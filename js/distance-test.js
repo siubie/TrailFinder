@@ -60,14 +60,21 @@ function trailfinder_initialize() {
                         var locationCoordinates = rows[rowNumber][1];
                         locCoordinates.push(locationCoordinates);
                         window.dataElement = document.createElement('tr');
+                        dataElement.className = 'loc-row' + rowNumber;
                         var nameElement = document.createElement('td');
                         nameElement.innerHTML = locationName;
                         nameElement.className = 'name-name';
                         var coordinatesElement = document.createElement('td');
                         coordinatesElement.innerHTML = locationCoordinates;
                         coordinatesElement.className = 'coordinates';
+
+                        window.distanceElement = document.createElement('td');
+                        distanceElement.className = 'distance-cell-' + rowNumber;
+                        
+
                         dataElement.appendChild(nameElement);
                         dataElement.appendChild(coordinatesElement);
+                        dataElement.appendChild(distanceElement);
                         resultsTableData.appendChild(dataElement);
                     }
                     distanceMatrixCoords(locCoordinates);
@@ -108,14 +115,14 @@ function trailfinder_initialize() {
                                 var to = destinations[j];
                                 console.log('distance matrix results are displaying');
 
-                                var distanceElement = document.createElement('td');
+                                //var distanceElement = document.createElement('td');
                                 distanceElement.innerHTML = results[j].distance.text + "<br/> in <br/>" + results[j].duration.text;
-                                distanceElement.className = 'distance-cell';
+                                //distanceElement.className = 'distance-cell';
                                 dataElement.appendChild(distanceElement);
                                 resultsTableData.appendChild(dataElement);
-                                
-                                
-	                        
+
+
+
                                 //$("#theresult").text(response.rows[0].elements[0].distance.text + " and " + response.rows[0].elements[0].duration.text);
 
                                 //different way of outputting results
